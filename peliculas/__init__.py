@@ -10,3 +10,7 @@ def hello():
 @app.route('/san lorenzo')
 def Boca():
     return 'san lorenzo el mas grande de todos'
+
+with app.app_context():
+   from . import db
+   db.init_app(app)
