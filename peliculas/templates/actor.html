@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{ url_for('static', filename='style.')}"
+    />
+  </head>
+  <body>
+    <h1>actores</h1>
+    <ul>
+      {% for actor in actores %}
+      <li>{{ actor['first_name']}} {{actor['last_name'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

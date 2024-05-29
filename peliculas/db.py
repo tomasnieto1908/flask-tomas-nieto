@@ -37,6 +37,8 @@ def init_db():
     with current_app.open_resource(db_sql_file) as f:
         db.executescript(f.read().decode('utf8'))
 
+   
+
 
 @click.command('init-db')
 def init_db_command():
@@ -52,5 +54,8 @@ def dict_factory(cursor, row):
  """Arma un diccionario con los valores de la fila."""
  fields = [column[0] for column in cursor.description]
  return {key: value for key, value in zip(fields, row)}
+
+
+
 
  

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{ url_for('static', filename='style.')}"
+    />
+  </head>
+  <body>
+    <h1>Lenguaje</h1>
+    <ul>
+      {% for lenguaje in lenguajes %}
+      <li>{{ lenguaje['name'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
