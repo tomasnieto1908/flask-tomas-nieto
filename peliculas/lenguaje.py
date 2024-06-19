@@ -3,7 +3,7 @@ from . import db
 
 bp = Blueprint('lenguaje', __name__, url_prefix='/lenguajes')
 
-@db.route('/lenguaje')
+@bp.route('/lenguaje')
 def lenguaje():
     consulta = """
         SELECT name FROM language  

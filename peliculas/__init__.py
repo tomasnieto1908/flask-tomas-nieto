@@ -15,32 +15,8 @@ with app.app_context():
    from . import db
    db.init_app(app)
 
-@app.route('/actor')
-def actor():
-    consulta = """
-        SELECT first_name, last_name FROM actor  
-        ORDER BY first_name, last_name ASC
-    """
+from . import actores
+app.register_blueprint(actores.bp)
 
-    con = db.get_db()
-    res = con.execute(consulta)
-    lista_actores = res.fetchall()
-    paginaActor = render_template("actor.html",
-                              actores=lista_actores)
-    return paginaActor
-
-
-
-@app.route('/lenguaje')
-def lenguaje():
-    consulta = """
-        SELECT name FROM language  
-        ORDER BY name ASC
-    """
-
-    con = db.get_db()
-    res = con.execute(consulta)
-    lista_lenguaje = res.fetchall()
-    paginalenguaje = render_template("lenguaje.html",
-                              lenguajes=lista_lenguaje)
-    return paginalenguaje
+from . import lenguaje
+app.register_blueprint(lenguaje.bp)

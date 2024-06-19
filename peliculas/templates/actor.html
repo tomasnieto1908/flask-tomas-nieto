@@ -4,14 +4,18 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{ url_for('static', filename='style.')}"
+      href="{ url_for('static', filename='style.css')}"
     />
   </head>
   <body>
     <h1>actores</h1>
     <ul>
       {% for actor in actores %}
-      <li>{{ actor['first_name']}} {{actor['last_name'] }}</li>
+      <li>
+        <a href="{{url_for('actor.detalle', id=actor['actor_id'])}}"
+          >{{actor['first_name']}} {{actor['last_name'] }}</a
+        >
+      </li>
       {% endfor %}
     </ul>
   </body>

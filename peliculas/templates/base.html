@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block titulo %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="colorFondo">
+    <h1>{% block encabezado %}{% endblock %}</h1>
+    {% block contenido %}{% endblock %}
+  </body>
+</html>
