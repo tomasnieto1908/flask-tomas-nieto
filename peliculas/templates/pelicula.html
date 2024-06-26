@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block title %} Peliculas {% endblock %} {% block
+encabezado %} Peliculas {% endblock %} {% block contenido %}
+
+<ul>
+  {% for pelicula in peliculas %}
+  <li><a href="{{url_for('Peliculas.detalle', id=pelicula['film_id'])}}" >{{pelicula['title'] }}</li><a>
+  {% endfor %}
+</ul>
+
+{% endblock %}

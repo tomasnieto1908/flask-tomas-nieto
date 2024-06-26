@@ -1,14 +1,14 @@
 {% extends 'base.html' %} {% block titulo %} lenguaje {% endblock %} {%block
 encabezado %} lenguajes {% endblock %} {% block contenido %}
 <ul>
-  {% for actor in actores %}
+  {% for lenguaje in lenguajes %}
+
   <li>
-    <ul>
-      {% for lenguaje in lenguajes %}
-      <li>{{ lenguaje['name'] }}</li>
-      {% endfor %}
-    </ul>
+    <a href="{{url_for('lenguaje.detalle', id=lenguaje['language_id'])}}"
+      >{{ lenguaje['name'] }}</a
+    >
   </li>
+  {% endfor %}
 </ul>
 
 {% endblock %}

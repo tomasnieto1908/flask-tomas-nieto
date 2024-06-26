@@ -4,7 +4,11 @@ endblock %} {% block contenido %}
 <h2>Peliculas</h2>
 <ul>
   {% for film in peliculas %}
-  <li>{{ film['titulo'] }}</li>
+  <li>
+    <a href="{{url_for('Peliculas.detalle', id=film['film_id'])}}">
+      {{ film['titulo'] }}</a
+    >
+  </li>
   {% endfor %}
 </ul>
 

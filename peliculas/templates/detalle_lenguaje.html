@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block titulo %} Lenguaje {% endblock %} {% block
+encabezado %} Lenguaje {{lenguaje['name'] }}{% endblock %} {% block contenido %}
+<h2>Peliculas</h2>
+<ul>
+  {% for pelicula in peliculas %}
+  <li>{{pelicula['titulo'] }}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
