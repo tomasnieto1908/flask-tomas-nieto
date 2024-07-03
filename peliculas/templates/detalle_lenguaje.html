@@ -3,7 +3,12 @@ encabezado %} Lenguaje {{lenguaje['name'] }}{% endblock %} {% block contenido %}
 <h2>Peliculas</h2>
 <ul>
   {% for pelicula in peliculas %}
-  <li>{{pelicula['titulo'] }}</li>
+  <li>
+    <a href="{{url_for('Peliculas.detalle', id=pelicula['film_id'])}}">
+      {{pelicula['titulo']}}</a
+    >
+  </li>
+
   {% endfor %}
 </ul>
 

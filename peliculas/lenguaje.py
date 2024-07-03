@@ -28,9 +28,14 @@ def detalle(id):
     res = con.execute(consulta, (id,))
     lenguaje = res.fetchone()
     consulta2 = """
-        SELECT f.title as titulo, l.language_id, f.film_id FROM film f
-        JOIN language l on f.language_id = l.language_id
-        WHERE l.language_id = ?
+        SELECT 
+    f.title AS titulo, 
+    f.film_id
+FROM 
+    film f
+WHERE 
+    f.language_id = ?;
+
     """
 
     res = con.execute(consulta2, (id,))

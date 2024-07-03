@@ -21,19 +21,40 @@ def pelicula():
 @bp.route('/<int:id>')
 def detalle(id):
     consulta = """
-          SELECT title, film_id FROM film
+        SELECT 
+    f.title, 
+    f.film_id, 
+    f.description,
+    l.language_id, 
+    f.rating, 
+    l.name AS language 
+FROM 
+    film f
+JOIN 
+    language l ON f.language_id = l.language_id
+WHERE 
+    f.film_id = ?
+ORDER BY 
+    f.title ASC;
 
-        WHERE film_id = ?
-        ORDER BY title ASC
             """
 
     con = db.get_db()
     res = con.execute(consulta, (id,))
     pelicula = res.fetchone()
     consulta2 = """
-           SELECT first_name, last_name, f.actor_id FROM film_actor f
-        JOIN actor a ON a.actor_id = f.actor_id
-        WHERE f.film_id = ?
+        SELECT 
+    a.first_name, 
+    a.last_name, 
+    f.actor_id
+FROM 
+    film_actor f
+JOIN 
+    actor a ON a.actor_id = f.actor_id
+WHERE 
+    f.film_id = ?;
+
+
     """
 
     res = con.execute(consulta2, (id,))
